@@ -20,13 +20,16 @@ const CartPage = () => {
   // Handle quantity increase
   const handleIncrease = async (item) => {
     try {
-      const response = await fetch(`http://localhost:5000/carts/${item._id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ quantity: item.quantity + 1 }),
-      });
+      const response = await fetch(
+        `https://mern-foodapp-server.onrender.com/carts/${item._id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ quantity: item.quantity + 1 }),
+        }
+      );
 
       if (response.ok) {
         const updatedCart = cartItems.map((cartItem) => {
@@ -52,7 +55,7 @@ const CartPage = () => {
     if (item.quantity > 1) {
       try {
         const response = await fetch(
-          `http://localhost:5000/carts/${item._id}`,
+          `https://mern-foodapp-server.onrender.com/carts/${item._id}`,
           {
             method: "PUT",
             headers: {
@@ -105,7 +108,7 @@ const CartPage = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:5000/carts/${item._id}`)
+          .delete(`https://mern-foodapp-server.onrender.com/carts/${item._id}`)
           .then((response) => {
             if (response) {
               refetch();

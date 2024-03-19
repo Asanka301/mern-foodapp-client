@@ -34,7 +34,7 @@ const Modal = () => {
           email: data.email,
         };
         axios
-          .post("http://localhost:5000/users", userInfor)
+          .post("https://mern-foodapp-server.onrender.com/users", userInfor)
           .then((response) => {
             // console.log(response);
             alert("Signin successful!");
@@ -60,7 +60,7 @@ const Modal = () => {
           email: result?.user?.email,
         };
         axios
-          .post("http://localhost:5000/users", userInfor)
+          .post("https://mern-foodapp-server.onrender.com/users", userInfor)
           .then((response) => {
             // console.log(response);
             alert("Signin successful!");

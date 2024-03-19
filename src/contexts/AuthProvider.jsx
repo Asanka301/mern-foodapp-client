@@ -57,12 +57,14 @@ const AuthProvider = ({ children }) => {
       setUser(currentUser);
       if (currentUser) {
         const userInfo = { email: currentUser.email };
-        axios.post("http://localhost:5000/jwt", userInfo).then((response) => {
-          // console.log(response.data.token);
-          if (response.data.token) {
-            localStorage.setItem("access-token", response.data.token);
-          }
-        });
+        axios
+          .post("https://mern-foodapp-server.onrender.com/jwt", userInfo)
+          .then((response) => {
+            // console.log(response.data.token);
+            if (response.data.token) {
+              localStorage.setItem("access-token", response.data.token);
+            }
+          });
       } else {
         localStorage.removeItem("access-token");
       }
